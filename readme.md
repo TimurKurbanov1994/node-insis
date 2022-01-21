@@ -38,7 +38,6 @@ Framework: NestJS
 
 **creator** uid пользователя создавшего тэг, только он может его менять и удалять из базы
 
-### **UserTag**
 
 ## Список API endpoint
 
@@ -51,9 +50,6 @@ Framework: NestJS
   "nickname": "nickname"
 }
 ```
-
-Валидировать **password**, **email**, **nickname**
-
 RETURN:
 
 ```json
@@ -120,13 +116,6 @@ RETURN:
   "nickname": "example"
 }
 ```
-
-Все поля опциональные
-
-Валидировать **password**, **email**, **nickname**
-
-Проверять на дублирование __email__ и __nickname__ в базе
-
 RETURN :
 
 ```json
@@ -141,8 +130,6 @@ RETURN :
 
   HEADER: ```Authorization: Bearer {token}```
 
-Разлогиниваем и удаляем пользователя
-
 ---
 - POST /tag
   
@@ -156,7 +143,6 @@ RETURN :
 ```
 
 **sortOrder** опционально по default 0
-Проверять на дублирование __name__ в базе и максимальную длину
 
 RETURN :
 
@@ -195,8 +181,6 @@ RETURN :
 **sortByOrder**, **offset** **SortByName**, **length** опциональны
 
 **length** количество элементов в выборке
-
-Если выбрали подход с страницами, то ипсользуйте параметры **page** и **pageSize** вместо **offset** и **length**
 
 RETURN :
 
@@ -267,9 +251,6 @@ HEADER: ```Authorization: Bearer {token}```
 
 Тэг может удалить только владелец
 
-Каскадом удалем все связанные записи с этим Тэгом
-
-
 ---
 
 ---
@@ -284,8 +265,6 @@ HEADER: ```Authorization: Bearer {token}```
 ```
 
 Проверяем тэги на наличие в базе и добавляем к пользователю пачкой (атомарной операцией)
-
-Пример: Если тэга с id 2 нет в базе то и тэг с id 1 не добавится пользователю
 
 RETURN :
 
